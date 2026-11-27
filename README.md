@@ -36,7 +36,19 @@ As fotos têm **nomes fixos**. Para trocar uma, envia-se uma nova com **o mesmo 
 | Ficheiro | Onde aparece |
 |---|---|
 | `assets/img/brasao.png` | Brasão no cabeçalho (falta a versão em boa resolução) |
-| `assets/img/Centro_dia_frente.jpg` | Fundo do topo das páginas (falta a versão em boa resolução) |
+| `assets/img/centro-de-dia-2.jpg` | Fundo do topo das páginas · cartão e foto do Centro de Dia |
+| `assets/img/igreja-2.jpg` | Fundo do topo de "A Nossa Terra" |
+| `assets/img/igreja-4.jpg` | Foto da secção História |
+| `assets/img/igreja.jpg` | Ponto de interesse: Igreja Matriz |
+| `assets/img/fonte.jpg` | Ponto de interesse: Fonte de Nossa Senhora da Ribeira |
+| `assets/img/parque-merendas.jpg` | Ponto de interesse: Parque de Merendas |
+| `assets/img/jardim-da-vila.jpg` | Ponto de interesse: Jardim da Vila |
+| `assets/img/lavadouros.jpg` | Ponto de interesse: Lavadouros |
+| `assets/img/casa-da-palmeira.jpg` | Ponto de interesse: Casa da Palmeira |
+| `assets/img/junta.jpg` | Ponto de interesse: Junta de Freguesia |
+
+Também guardadas, para usar mais tarde: `igreja-3.jpg`, `jardim-da-vila-2.jpg`, `jardim-da-vila-3.jpg`, `lavadouros-2.jpg`, `junta-no-natal.jpg`.
+Os nomes seguem os da pasta de fotos, em minúsculas e sem espaços (ex.: "Igreja 2.jpg" → `igreja-2.jpg`).
 
 Os quadrados azul-claros com texto entre [parênteses retos] são lugares para fotos e textos ainda por pôr.
 
