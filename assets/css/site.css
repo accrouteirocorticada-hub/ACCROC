@@ -6,7 +6,7 @@ a{color:#002E5D}a:hover{color:#001E3E}
 img{max-width:100%}
 [hidden]{display:none !important}
 .hero-bg{position:relative;overflow:hidden;background:#001E3E}
-.hero-bg::before{content:"";position:absolute;inset:-12px;background:url(../img/Centro_dia_frente.jpg) center/cover no-repeat;filter:blur(3px)}
+.hero-bg::before{content:"";position:absolute;inset:-12px;background:url(../img/centro-de-dia-2.jpg) center/cover no-repeat;filter:blur(3px)}
 .hero-bg::after{content:"";position:absolute;inset:0;background:rgba(0,30,62,0.74)}
 
 /* Cabeçalho */
