@@ -1,0 +1,60 @@
+# Tarefa de uma só vez: copia os PDF (relatórios, estatutos, atas) do site antigo do Wix
+# para a pasta docs/ deste repositório, e apaga-se a si própria no fim.
+name: Importar PDF do Wix
+
+on:
+  push:
+    branches: [importar-pdfs]
+    paths: ['.github/workflows/importar-pdfs.yml']
+
+permissions:
+  contents: write
+
+jobs:
+  importar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Descarregar os PDF
+        run: |
+          set -e
+          falhas=0
+          while read -r url destino; do
+            [ -z "$url" ] && continue
+            mkdir -p "$(dirname "$destino")"
+            if curl -fsSL --retry 3 -o "$destino" "$url" && head -c 4 "$destino" | grep -q '%PDF'; then
+              echo "OK  $destino ($(stat -c%s "$destino") bytes)"
+            else
+              echo "ERRO $destino <- $url"; rm -f "$destino"; falhas=$((falhas+1))
+            fi
+          done <<'LISTA'
+          https://3fb657e2-1812-4d8e-923c-280e314d20ce.filesusr.com/ugd/9bffff_4481d5e242ec4a58a90ed9d369abea06.pdf docs/relatorios/2022-relatorio-de-contas.pdf
+          https://3fb657e2-1812-4d8e-923c-280e314d20ce.filesusr.com/ugd/9bffff_8a8d0e975ae942f88089ca228a92ef30.pdf docs/relatorios/2022-anexo-demonstracoes-financeiras.pdf
+          https://3fb657e2-1812-4d8e-923c-280e314d20ce.filesusr.com/ugd/9bffff_db40c943a8ae4239a4fb399a10597113.pdf docs/relatorios/2021-relatorio-de-contas.pdf
+          https://3fb657e2-1812-4d8e-923c-280e314d20ce.filesusr.com/ugd/9bffff_689fab0c7ef94e4d967a3cc3c138bcb9.pdf docs/relatorios/2021-anexo-demonstracoes-financeiras.pdf
+          https://3fb657e2-1812-4d8e-923c-280e314d20ce.filesusr.com/ugd/9bffff_c4b4f68c59144655a33a94ad740d2032.pdf docs/relatorios/2020-relatorio-de-contas.pdf
+          https://3fb657e2-1812-4d8e-923c-280e314d20ce.filesusr.com/ugd/9bffff_e703319d7aa748bc9541ccba0497aaa1.pdf docs/relatorios/2020-anexo-demonstracoes-financeiras.pdf
+          https://3fb657e2-1812-4d8e-923c-280e314d20ce.filesusr.com/ugd/9bffff_213ffd059edd4be189b1ed30b70ab0a3.pdf docs/relatorios/2019-relatorio-de-contas.pdf
+          https://3fb657e2-1812-4d8e-923c-280e314d20ce.filesusr.com/ugd/9bffff_e660e8f7886f4e99af50f5e3e33dc9ef.pdf docs/relatorios/2019-anexo-demonstracoes-financeiras.pdf
+          https://3fb657e2-1812-4d8e-923c-280e314d20ce.filesusr.com/ugd/9bffff_b018193120fe4ed58e01484c9904e38d.pdf docs/relatorios/2018-relatorio-de-contas.pdf
+          https://3fb657e2-1812-4d8e-923c-280e314d20ce.filesusr.com/ugd/9bffff_2b70137361e64cfc8deb6d8981464a76.pdf docs/relatorios/2018-anexo-demonstracoes-financeiras.pdf
+          https://3fb657e2-1812-4d8e-923c-280e314d20ce.filesusr.com/ugd/9bffff_160c148041db473dbde83ef5cb45a1bb.pdf docs/relatorios/2017-relatorio-de-contas.pdf
+          https://3fb657e2-1812-4d8e-923c-280e314d20ce.filesusr.com/ugd/9bffff_96d9da3be02c408ab21c88d1db24121a.pdf docs/relatorios/2017-anexo-demonstracoes-financeiras.pdf
+          https://3fb657e2-1812-4d8e-923c-280e314d20ce.filesusr.com/ugd/9bffff_b4c181f784af48a18cfe5f41ce13f8b1.pdf docs/relatorios/2016-contas-de-gerencia.pdf
+          https://3fb657e2-1812-4d8e-923c-280e314d20ce.filesusr.com/ugd/9bffff_f1d528e597f54b148e0792c501c04f3b.pdf docs/relatorios/2015-contas-de-gerencia.pdf
+          https://3fb657e2-1812-4d8e-923c-280e314d20ce.filesusr.com/ugd/9bffff_8327fdfd0fe64ed78392b71948e0ef41.pdf docs/relatorios/2014-contas-de-gerencia.pdf
+          https://3fb657e2-1812-4d8e-923c-280e314d20ce.filesusr.com/ugd/9bffff_3bf6a604edb147adbcd542bf54dd09b5.pdf docs/estatutos/escritura-estatutos-2019.pdf
+          https://3fb657e2-1812-4d8e-923c-280e314d20ce.filesusr.com/ugd/9bffff_125c3f34604d4a0d8cfbf487af0a4be9.pdf docs/atas/ata-50-2016-05-22.pdf
+          https://3fb657e2-1812-4d8e-923c-280e314d20ce.filesusr.com/ugd/9bffff_c98bb5b1681e4077a56e3309770039ab.pdf docs/atas/ata-49-2015-10-25-com-estatutos.pdf
+          https://3fb657e2-1812-4d8e-923c-280e314d20ce.filesusr.com/ugd/9bffff_b5376c49899a4b6a9aeec010fe29eb42.pdf docs/atas/ata-48-2015-04-12.pdf
+          LISTA
+          echo "Falhas: $falhas"
+          [ "$falhas" -eq 0 ]
+      - name: Guardar e remover esta tarefa
+        run: |
+          git config user.name "accroc-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm -q .github/workflows/importar-pdfs.yml
+          git add docs
+          git commit -m "Copiar os PDF do Wix para docs/"
+          git push
