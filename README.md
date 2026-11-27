@@ -87,13 +87,13 @@ Sem estes dois segredos a tarefa não faz nada, e o site continua a mostrar os e
 
 **Settings → Pages → Build and deployment → Source: "Deploy from a branch" → Branch: `main` / `(root)` → Save.**
 
-Ao fim de 1 a 2 minutos, o site fica em `https://agostinho1998.github.io/ACCROC/`.
+Ao fim de 1 a 2 minutos, o site fica em `https://accrouteirocorticada-hub.github.io/ACCROC/`.
 
 ### Domínio próprio (mais tarde)
 
 Quando o `accroc.eu.org` for aprovado (ou se se comprar um `.pt`):
 1. **Settings → Pages → Custom domain** → escrever o domínio → Save.
-2. No DNS do domínio, criar um registo `CNAME` de `www` para `agostinho1998.github.io`. Para o domínio sem `www`, criar os registos `A` indicados na documentação do GitHub Pages.
+2. No DNS do domínio, criar um registo `CNAME` de `www` para `accrouteirocorticada-hub.github.io`. Para o domínio sem `www`, criar os registos `A` indicados na documentação do GitHub Pages.
 3. Ativar **Enforce HTTPS**.
 
 ## Novos relatórios e contas
