@@ -45,6 +45,7 @@ As fotos têm **nomes fixos**. Para trocar uma, envia-se uma nova com **o mesmo 
 | `assets/img/jardim-da-vila.jpg` | Ponto de interesse: Jardim da Vila |
 | `assets/img/lavadouros.jpg` | Ponto de interesse: Lavadouros |
 | `assets/img/casa-da-palmeira.jpg` | Ponto de interesse: Casa da Palmeira |
+| `assets/img/quinta-da-corticada.jpg` | Ponto de interesse: Quinta da Cortiçada |
 | `assets/img/junta.jpg` | Ponto de interesse: Junta de Freguesia |
 | `assets/img/atletismo.jpg` | Página inicial, cartão Cultura e Desporto (foto da CM Rio Maior; crédito na foto) |
 
