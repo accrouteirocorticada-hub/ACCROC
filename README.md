@@ -44,7 +44,7 @@ Os quadrados azul-claros com texto entre [parênteses retos] são lugares para f
 A associação publica só no Facebook (https://www.facebook.com/accrouteirodacorticadaipss) e o site atualiza-se sozinho.
 
 - **Notícias:** os 3 últimos posts aparecem na página inicial.
-- **Eventos:** os posts com cartaz e `#evento` aparecem no cartão "Próximos eventos". Saem sozinhos quando a data passa.
+- **Eventos:** os posts com cartaz, `#ACCROC` e uma linha `Data:` aparecem no cartão "Próximos eventos". Saem sozinhos quando a data passa.
 
 Regra para um evento aparecer no site:
 
@@ -52,9 +52,11 @@ Regra para um evento aparecer no site:
 Festas da Aldeia 2027          ← 1.ª linha: nome do evento
 Data: 20/06/2027               ← obrigatório (dia/mês/ano)
 Local: Largo da aldeia         ← opcional
-Venham todos! #evento          ← obrigatório: #evento
+Venham todos! #ACCROC          ← obrigatório: #ACCROC
 ```
 (e o **cartaz** como foto do post)
+
+Um post com `#ACCROC` mas **sem** a linha `Data:` aparece como notícia normal, por isso pode usar-se `#ACCROC` em todos os posts.
 
 ### Ligar ao Facebook (feito uma vez, por um administrador da página)
 

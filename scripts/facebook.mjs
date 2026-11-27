@@ -1,6 +1,6 @@
 // Vai buscar os últimos posts da página de Facebook da ACCROC e gera:
-//   data/noticias.json – os 3 últimos posts (sem #evento)
-//   data/eventos.json  – os posts com #evento cuja data ainda não passou
+//   data/noticias.json – os 3 últimos posts que não são eventos
+//   data/eventos.json  – os posts com #ACCROC e uma linha "Data:" cuja data ainda não passou
 //
 // Precisa de dois "secrets" no GitHub (Settings → Secrets and variables → Actions):
 //   FB_PAGE_ID     – o ID numérico da página de Facebook
@@ -10,7 +10,8 @@
 //   1.ª linha: nome do evento
 //   Data: 20/06/2027
 //   Local: Largo da aldeia        (opcional)
-//   #evento
+//   #ACCROC
+// Um post com #ACCROC mas sem linha "Data:" conta como notícia normal.
 
 import { writeFile, readFile } from 'node:fs/promises';
 
@@ -37,7 +38,7 @@ async function getPosts() {
 
 function lerEvento(post) {
   const linhas = (post.message || '').split('\n').map((l) => l.trim()).filter(Boolean);
-  const titulo = (linhas[0] || '').replace(/#evento/gi, '').trim();
+  const titulo = (linhas[0] || '').replace(/#accroc\b/gi, '').trim();
   const dataLinha = linhas.find((l) => /^data\s*:/i.test(l));
   const localLinha = linhas.find((l) => /^local\s*:/i.test(l));
   if (!titulo || !dataLinha) return null;
@@ -75,18 +76,22 @@ const posts = await getPosts();
 const hoje = new Date().toISOString().slice(0, 10);
 const agora = new Date().toISOString();
 
+// Um evento = post com #ACCROC e uma linha "Data: dd/mm/aaaa"
+const HASHTAG = /#accroc\b/i;
+const eEvento = (p) => HASHTAG.test(p.message || '') && lerEvento(p) !== null;
+
 const eventos = posts
-  .filter((p) => /#evento/i.test(p.message || ''))
+  .filter(eEvento)
   .map(lerEvento)
-  .filter((e) => e && e.iso >= hoje)
+  .filter((e) => e.iso >= hoje)
   .sort((a, b) => a.iso.localeCompare(b.iso));
 
 const noticias = posts
-  .filter((p) => p.message && !/#evento/i.test(p.message))
+  .filter((p) => p.message && !eEvento(p))
   .slice(0, 3)
   .map((p) => ({
     date: dataPT(new Date(p.created_time)),
-    text: resumo(p.message),
+    text: resumo(p.message.replace(/#accroc\b/gi, '')),
     image: p.full_picture || null,
     link: p.permalink_url,
   }));
