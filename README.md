@@ -45,10 +45,11 @@ As fotos têm **nomes fixos**. Para trocar uma, envia-se uma nova com **o mesmo 
 | `assets/img/jardim-da-vila.jpg` | Ponto de interesse: Jardim da Vila |
 | `assets/img/lavadouros.jpg` | Ponto de interesse: Lavadouros |
 | `assets/img/casa-da-palmeira.jpg` | Ponto de interesse: Casa da Palmeira |
+| `assets/img/quinta-da-corticada.jpg` | Ponto de interesse: Quinta da Cortiçada |
 | `assets/img/junta.jpg` | Ponto de interesse: Junta de Freguesia |
 | `assets/img/atletismo.jpg` | Página inicial, cartão Cultura e Desporto (foto da CM Rio Maior; crédito na foto) |
 
-Também guardadas, para usar mais tarde: `igreja-3.jpg`, `jardim-da-vila-2.jpg`, `jardim-da-vila-3.jpg`, `lavadouros-2.jpg`, `junta-no-natal.jpg`.
+Também guardadas, para usar mais tarde: `quinta-da-corticada-2.jpg`, `igreja-3.jpg`, `jardim-da-vila-2.jpg`, `jardim-da-vila-3.jpg`, `lavadouros-2.jpg`, `junta-no-natal.jpg`.
 Os nomes seguem os da pasta de fotos, em minúsculas e sem espaços (ex.: "Igreja 2.jpg" → `igreja-2.jpg`).
 
 Os quadrados azul-claros com texto entre [parênteses retos] são lugares para fotos e textos ainda por pôr.
