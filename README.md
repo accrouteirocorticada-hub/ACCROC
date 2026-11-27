@@ -22,7 +22,7 @@ Atalhos úteis: `/centro-de-dia/#documentacao` abre logo os relatórios e contas
 assets/css/site.css      estilos comuns (cabeçalho, menu, telemóvel)
 assets/js/site.js        menu, separadores, eventos, notícias, formulário
 assets/img/              fotos e brasão (nomes fixos)
-docs/                    relatórios e contas, estatutos e atas (PDF)
+documentos/              relatorios-de-contas/, estatutos/ e atas/ (PDF)
 data/noticias.json       últimas notícias (geradas a partir do Facebook)
 data/eventos.json        próximos eventos (gerados a partir do Facebook)
 scripts/facebook.mjs     programa que vai buscar os posts ao Facebook
@@ -82,13 +82,13 @@ Quando o `accroc.eu.org` for aprovado (ou se se comprar um `.pt`):
 
 ## Novos relatórios e contas
 
-Para publicar um relatório novo: pôr o PDF em `docs/relatorios/` com o nome `AAAA-relatorio-de-contas.pdf` (e `AAAA-anexo-demonstracoes-financeiras.pdf`) e acrescentar o link em `centro-de-dia/index.html`, no separador Documentação. O Claude pode tratar disto.
+Para publicar um relatório novo: pôr o PDF em `documentos/relatorios-de-contas/` com o nome `AAAA-relatorio-de-contas.pdf` (e `AAAA-anexo-demonstracoes-financeiras.pdf`) e acrescentar o link em `centro-de-dia/index.html`, no separador Documentação. O Claude pode tratar disto.
 
 ## Por fazer
 
 - [ ] Fotos e brasão em boa resolução
 - [ ] Textos entre [parênteses retos]: utentes, inscrição, descrições dos pontos de interesse, órgãos sociais
 - [ ] Relatórios e contas 2023–2025
-- [x] Copiar os PDF dos relatórios do Wix para o site (`docs/`)
+- [x] Copiar os PDF dos relatórios do Wix para o site (`documentos/`)
 - [ ] Ligar ao Facebook (secção acima)
 - [ ] Confirmar o IBAN com a tesouraria
